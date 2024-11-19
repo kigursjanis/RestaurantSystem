@@ -31,7 +31,7 @@ const GaldiList = () => {  // Remove the restoranaId parameter
 
     return (
         <div className="container mt-4">
-            <h3>Pieejamie Galdiņi</h3>
+            <h3>sPieejamie Galdiņi</h3>
             <div className="row">
                 {galdi.map(galds => (
                     <div key={galds.id} className="col-md-4 mb-3">

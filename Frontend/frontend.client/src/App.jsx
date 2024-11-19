@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RestoraniList from './components/restorani/RestoraniList';
 import GaldiList from './components/galdi/GaldiList';
 import EdienkarteList from './components/edienkarte/EdienkarteList';
+import HomePage from './components/home/HomePage';
 
 function App() {
     return (
@@ -15,7 +16,8 @@ function App() {
                 padding: 0
             }}>
                 <Routes>
-                    <Route path="/" element={<RestoraniList />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/restaurants" element={<RestoraniList />} />
                     <Route path="/galdi/:restoranaId" element={<GaldiList />} />
                     <Route path="/edienkarte/:restoranaId" element={<EdienkarteList />} />
                 </Routes>

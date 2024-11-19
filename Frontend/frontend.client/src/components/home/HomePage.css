@@ -1,0 +1,55 @@
+.home - container {
+    display: flex;
+    min - height: 100vh;
+    color: white;
+}
+
+.sidebar {
+    width: 250px;
+    background - color: #2d2d2d;
+    padding: 20px;
+    display: flex;
+    flex - direction: column;
+    gap: 20px;
+}
+
+.main - nav {
+    display: flex;
+    flex - direction: column;
+    gap: 10px;
+}
+
+.main - nav button {
+    padding: 10px;
+    background - color: #4A90E2;
+    border: none;
+    border - radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.main - nav button:hover {
+    opacity: 0.9;
+}
+
+.main - content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.feed - section {
+    flex: 2;
+    background - color: #2d2d2d;
+    border - radius: 8px;
+    padding: 20px;
+}
+
+.friends - section {
+    flex: 1;
+    background - color: #2d2d2d;
+    border - radius: 8px;
+    padding: 20px;
+}

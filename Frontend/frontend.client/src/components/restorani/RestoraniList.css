@@ -10,6 +10,30 @@
     overflow-x: hidden;
 }
 
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 1rem 0; /* Add some padding */
+    scrollbar-width: thin; /* For Firefox */
+    max-width: 100%; /* Ensure it doesn't exceed the parent width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+}
+
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #4A90E2; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #2d2d2d; /* Color of the scrollbar track */
+}
+
 .content-wrapper {
     width: 100%;
     max-width: 1200px;
@@ -17,6 +41,13 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+}
+
+.average-price {
+    color: #4A90E2; /* Color for the average price */
+    font-size: 1.1rem; /* Font size for the average price */
+    text-align: center; /* Center the text */
+    margin-bottom: 1rem; /* Space below the price */
 }
 
 .main-title {
@@ -42,12 +73,14 @@
 }
 
 .restaurant-card {
-    width: 300px;
+    min-width: 300px; /* Set a minimum width for each card */
+    margin-right: 1rem; /* Add some space between cards */
     background-color: #2d2d2d;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .restaurant-image {
     width: 100%;

@@ -1,55 +1,268 @@
-.home - container {
+.letterboxd-style {
+    background-color: #14181c;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.main-nav {
+    background-color: #14181c;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
     display: flex;
-    min - height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 2rem 0; /* Add top padding to account for fixed nav */
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+    .nav-left h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .nav-left ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-left li {
+        cursor: pointer;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        padding: 0.25rem 0;
+    }
+
+.popular-section {
+    padding: 2rem 0;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.recent-activity {
+    padding: 2rem 0;
+    background-color: #2c3440;
+    margin-top: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .nav-container,
+    .content-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-left ul {
+        display: none; /* Consider adding a mobile menu */
+    }
+}
+
+/* Add to your existing CSS */
+
+.logged-in-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.feed-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+    .feed-filters button {
+        background: none;
+        border: none;
+        color: #99a;
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+    }
+
+        .feed-filters button.active {
+            color: #fff;
+            background: #2c3440;
+            border-radius: 4px;
+        }
+
+.review-card {
+    background: #2c3440;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+    .review-header img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+.review-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.restaurant-poster {
+    width: 120px;
+    height: 180px;
+    background: #1a1d21;
+    border-radius: 4px;
+}
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.add-review {
+    background: #00b020;
     color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .sidebar {
-    width: 250px;
-    background - color: #2d2d2d;
-    padding: 20px;
-    display: flex;
-    flex - direction: column;
-    gap: 20px;
+    background: #2c3440;
+    border-radius: 4px;
+    padding: 1rem;
 }
 
-.main - nav {
-    display: flex;
-    flex - direction: column;
-    gap: 10px;
+/* Add these to your existing styles */
+
+.user-menu {
+    position: relative;
 }
 
-.main - nav button {
-    padding: 10px;
-    background - color: #4A90E2;
-    border: none;
-    border - radius: 5px;
-    color: white;
+.main-footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    background-color: #2c3440;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+    .footer-links a {
+        color: #99a;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+.footer-copyright {
+    color: #99a;
+    font-size: 0.9rem;
+}
+
+.sign-in {
+    background: transparent;
+    border: 1px solid #456;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    font-size: 0.9rem;
 }
 
-.main - nav button:hover {
-    opacity: 0.9;
+.create-account {
+    background: #00b020;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
 
-.main - content {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
+.sign-in:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.feed - section {
-    flex: 2;
-    background - color: #2d2d2d;
-    border - radius: 8px;
-    padding: 20px;
+.create-account:hover {
+    background: #00c020;
 }
 
-.friends - section {
-    flex: 1;
-    background - color: #2d2d2d;
-    border - radius: 8px;
-    padding: 20px;
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

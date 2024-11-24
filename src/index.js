@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 // Auth Routes
 app.post('/api/auth/register', async (req, res) => {
     const { username, email, password } = req.body;
-    
+
     try {
         const db = require('./db');
         
@@ -45,8 +45,10 @@ app.post('/api/auth/register', async (req, res) => {
             [username, email, password_hash, 'https://via.placeholder.com/150']
         );
 
+        // Send back user data (now auto-logged in)
         res.status(201).json({
-            user: result.rows[0]
+            user: result.rows[0],
+            message: 'Registration successful'
         });
 
     } catch (err) {
@@ -60,7 +62,7 @@ app.post('/api/auth/login', async (req, res) => {
 
     try {
         const db = require('./db');
-        
+
         // Find user
         const result = await db.query(
             'SELECT * FROM users WHERE email = $1',
@@ -79,11 +81,17 @@ app.post('/api/auth/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // Don't send password hash to client
-        delete user.password_hash;
-        
+        // Create a clean user object without password_hash
+        const userResponse = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            profile_picture_url: user.profile_picture_url
+        };
+
         res.json({
-            user: user
+            user: userResponse,
+            message: 'Login successful'
         });
 
     } catch (err) {
@@ -91,6 +99,28 @@ app.post('/api/auth/login', async (req, res) => {
         res.status(500).json({ error: 'Server error', details: err.message });
     }
 });
+
+
+// Add this new route to your index.js
+app.get('/api/users/:username', async (req, res) => {
+    try {
+        const db = require('./db');
+        const result = await db.query(
+            'SELECT id, username, email, profile_picture_url, created_at FROM users WHERE username = $1',
+            [req.params.username]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error('Error fetching user:', err);
+        res.status(500).json({ error: 'Server error', details: err.message });
+    }
+});
+
 
 // Restoranu route - this is correct as it uses 'restoraani' table
 app.get('/api/restorani', async (req, res) => {

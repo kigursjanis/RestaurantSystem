@@ -1,0 +1,123 @@
+.profile-page {
+    padding-top: 60px;
+    color: #fff;
+}
+
+.profile-header {
+    position: relative;
+    height: 300px;
+}
+
+.profile-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, #2c3440, #1d232a);
+}
+
+.profile-info {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #14181c;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #99a;
+}
+
+.profile-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.profile-nav {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+}
+
+    .profile-nav button {
+        background: none;
+        border: none;
+        color: #99a;
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+    }
+
+        .profile-nav button.active {
+            color: #fff;
+            position: relative;
+        }
+
+            .profile-nav button.active::after {
+                content: '';
+                position: absolute;
+                bottom: -1rem;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #00b020;
+            }
+
+.recent-activity {
+    background: #2c3440;
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+    .recent-activity h2 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+.activity-feed {
+    color: #99a;
+}
+
+@media (max-width: 768px) {
+    .profile-stats {
+        gap: 1.5rem;
+    }
+
+    .profile-nav {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+}

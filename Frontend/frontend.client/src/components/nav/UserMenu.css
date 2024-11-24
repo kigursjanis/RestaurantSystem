@@ -1,0 +1,80 @@
+.user-menu {
+    position: relative;
+    margin-right: 1rem; /* Add space between profile pic and RESTAURANTS */
+}
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    vertical-align: middle;
+}
+
+    .profile-pic:hover {
+        opacity: 0.8;
+    }
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background-color: #2c3440;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    z-index: 1000;
+}
+    /* Add a small arrow to the dropdown */
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid #2c3440;
+    }
+
+.dropdown-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.username {
+    color: #fff;
+    font-weight: 500;
+}
+
+.dropdown-items {
+    padding: 0.5rem 0;
+}
+
+    .dropdown-items button {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+        .dropdown-items button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }

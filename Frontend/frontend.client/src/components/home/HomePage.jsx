@@ -1,24 +1,38 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react'; // Add useEffect here
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 import AuthModal from '../auth/AuthModal';
 import LoggedOutHome from './LoggedOutHome';
 import LoggedInHome from './LoggedInHome';
+import UserMenu from '../nav/UserMenu';
+import ThemeToggle from '../nav/ThemeToggle';
 
 const HomePage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [authModalView, setAuthModalView] = useState('signin');
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
-    const handleAuthSuccess = (user) => {
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    const handleAuthSuccess = (userData) => {
+        setUser(userData);
         setIsLoggedIn(true);
         setShowAuthModal(false);
     };
 
     const handleSignOut = () => {
+        localStorage.removeItem('user');
+        setUser(null);
         setIsLoggedIn(false);
-        // TODO: Add actual sign out logic (clear tokens, etc.)
+        navigate('/');  // Redirect to home page
     };
 
     return (
@@ -34,7 +48,12 @@ const HomePage = () => {
                             />
                             <h1>PlateRate</h1>
                         </div>
-                        <ul>
+                        <ul className="nav-items">
+                            {isLoggedIn && (
+                                <li>
+                                    <UserMenu user={user} onLogout={handleSignOut} />
+                                </li>
+                            )}
                             <li onClick={() => navigate('/restaurants')}>RESTAURANTS</li>
                             <li>REVIEWS</li>
                             <li>LISTS</li>
@@ -42,6 +61,7 @@ const HomePage = () => {
                         </ul>
                     </div>
                     <div className="nav-right">
+                        <ThemeToggle />
                         {!isLoggedIn ? (
                             <>
                                 <button
@@ -64,18 +84,7 @@ const HomePage = () => {
                                 </button>
                             </>
                         ) : (
-                            <>
-                                <button className="add-review">+ ADD REVIEW</button>
-                                <div className="user-menu">
-                                    <img
-                                        src="https://via.placeholder.com/30"
-                                        alt="Profile"
-                                        className="profile-pic"
-                                        onClick={handleSignOut} // For demo; replace with proper menu
-                                    />
-                                    {/* TODO: Add dropdown menu */}
-                                </div>
-                            </>
+                            <button className="add-review">+ ADD REVIEW</button>
                         )}
                     </div>
                 </div>

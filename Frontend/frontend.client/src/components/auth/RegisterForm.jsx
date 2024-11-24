@@ -13,13 +13,13 @@ const RegisterForm = ({ onSuccess, switchToSignIn }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('');
 
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
+        setError('');
         setIsLoading(true);
 
         try {
@@ -28,7 +28,7 @@ const RegisterForm = ({ onSuccess, switchToSignIn }) => {
                 formData.email,
                 formData.password
             );
-            onSuccess(user);
+            onSuccess(user); // This will auto-login
         } catch (err) {
             setError(err.message || 'Registration failed');
         } finally {

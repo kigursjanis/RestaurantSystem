@@ -1,0 +1,129 @@
+.logged-out-container {
+    min-height: calc(100vh - 60px);
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #14181c 0%, #1c232a 100%);
+    color: #fff;
+}
+
+.hero-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, #00b020, #00d88a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Playfair Display', serif; /* Add this font to your index.html */
+}
+
+.features {
+    margin-bottom: 4rem;
+}
+
+.feature-text {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #99a;
+    font-family: 'Merriweather', serif; /* Add this font to your index.html */
+    transition: color 0.3s ease;
+}
+
+    .feature-text:hover {
+        color: #fff;
+    }
+
+.stats-section {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00b020;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #99a;
+    margin-top: 0.5rem;
+}
+
+.featured-section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+    .featured-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+
+.featured-restaurants {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.restaurant-card {
+    background: #2c3440;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+    .restaurant-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .restaurant-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .restaurant-card h3 {
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .restaurant-card p {
+        padding: 0 1rem 1rem;
+        color: #99a;
+    }
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .feature-text {
+        font-size: 1.2rem;
+    }
+
+    .stats-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

@@ -18,7 +18,7 @@ const SignInForm = ({ onSuccess, switchToRegister }) => {
             const user = await authService.login(formData.email, formData.password);
             onSuccess(user);
         } catch (err) {
-            setError(err.message || 'Login failed');
+            setError(err.message || 'Invalid email or password');
         } finally {
             setIsLoading(false);
         }

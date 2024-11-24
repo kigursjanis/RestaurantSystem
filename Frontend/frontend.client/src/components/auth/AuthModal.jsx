@@ -3,7 +3,7 @@ import './AuthModal.css';
 import SignInForm from './SignInForm';
 import RegisterForm from './RegisterForm';
 
-const AuthModal = ({ isOpen, onClose, initialView = 'signin' }) => {
+const AuthModal = ({ isOpen, onClose, initialView = 'signin', onAuthSuccess }) => {
     const [view, setView] = useState(initialView);
 
     if (!isOpen) return null;
@@ -31,9 +31,15 @@ const AuthModal = ({ isOpen, onClose, initialView = 'signin' }) => {
                 </div>
 
                 {view === 'signin' ? (
-                    <SignInForm onSuccess={onClose} switchToRegister={() => setView('register')} />
+                    <SignInForm
+                        onSuccess={onAuthSuccess}
+                        switchToRegister={() => setView('register')}
+                    />
                 ) : (
-                    <RegisterForm onSuccess={onClose} switchToSignIn={() => setView('signin')} />
+                    <RegisterForm
+                        onSuccess={onAuthSuccess}
+                        switchToSignIn={() => setView('signin')}
+                    />
                 )}
             </div>
         </div>

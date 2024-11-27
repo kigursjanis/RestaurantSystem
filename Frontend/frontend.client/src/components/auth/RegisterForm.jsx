@@ -28,7 +28,7 @@ const RegisterForm = ({ onSuccess, switchToSignIn }) => {
                 formData.email,
                 formData.password
             );
-            onSuccess(user); // This will auto-login
+            onSuccess(user); // will auto-login
         } catch (err) {
             setError(err.message || 'Registration failed');
         } finally {

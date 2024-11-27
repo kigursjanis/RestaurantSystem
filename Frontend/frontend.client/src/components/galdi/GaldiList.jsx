@@ -2,8 +2,8 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const GaldiList = () => {  // Remove the restoranaId parameter
-    const { restoranaId } = useParams();  // Get restoranaId from useParams
+const GaldiList = () => {  
+    const { restoranaId } = useParams();  
     const [galdi, setGaldi] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

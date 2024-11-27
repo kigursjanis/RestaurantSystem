@@ -1,14 +1,18 @@
 ﻿:root[data-theme="light"] {
-    --primary-bg: #f5e6d3;
-    --secondary-bg: #e6d5c3;
+    --primary-bg: #ebe0d1;
+    --secondary-bg: #d9c8b6;
     --primary-text: #2c2420;
     --secondary-text: #5c4033;
     --accent-color: #8B4513;
     --hover-accent: #A0522D;
-    --nav-bg: #dcc7b5;
-    --card-bg: #ffffff;
+    --nav-bg: #d1bfad;
+    --card-bg: #d9c8b6;
     --hover-bg: rgba(139, 69, 19, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --input-bg: #ebe0d1;
+    --error-color: #ff4444;
+    --success-color: #00b020;
 }
 
 :root[data-theme="dark"] {
@@ -22,4 +26,8 @@
     --card-bg: #2c3440;
     --hover-bg: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+    --input-bg: #2a2a2a;
+    --error-color: #ff6b6b;
+    --success-color: #00d88a;
 }

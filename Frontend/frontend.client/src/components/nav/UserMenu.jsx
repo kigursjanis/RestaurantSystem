@@ -7,7 +7,7 @@ const UserMenu = ({ user, onLogout }) => {
     const menuRef = useRef(null);
     const navigate = useNavigate();
 
-    // Close menu when clicking outside
+   
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {

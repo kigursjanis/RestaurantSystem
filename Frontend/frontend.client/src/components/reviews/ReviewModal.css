@@ -1,0 +1,351 @@
+.review-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--modal-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.review-modal-content {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    color: var(--primary-text);
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.close-button:hover {
+    color: var(--primary-text);
+}
+
+.restaurant-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--primary-bg);
+    border-radius: 8px;
+}
+
+.restaurant-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.restaurant-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.rating-section {
+    margin-bottom: 2rem;
+}
+
+.stars-container {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-text);
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star.filled {
+    color: var(--accent-color);
+}
+
+.rating-value {
+    display: block;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.review-section {
+    margin-bottom: 2rem;
+}
+
+.review-section textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--secondary-text);
+    border-radius: 4px;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    resize: vertical;
+    margin-top: 0.5rem;
+}
+
+.review-section textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.cancel-button {
+    background: none;
+    border: 1px solid var(--secondary-text);
+    color: var(--secondary-text);
+}
+
+.cancel-button:hover {
+    border-color: var(--primary-text);
+    color: var(--primary-text);
+}
+
+.submit-button {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+    background: var(--hover-accent);
+}
+
+.submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+/* Restaurant Selection */
+.restaurant-selection {
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--secondary-text);
+    border-radius: 4px;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.restaurants-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--secondary-text);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.restaurant-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px solid var(--secondary-bg);
+}
+
+.restaurant-option:last-child {
+    border-bottom: none;
+}
+
+.restaurant-option:hover {
+    background: var(--hover-bg);
+}
+
+.restaurant-option.selected {
+    background: var(--hover-bg);
+    border-left: 3px solid var(--accent-color);
+}
+
+.restaurant-option img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.restaurant-option h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--primary-text);
+}
+
+.restaurant-option p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* Add Restaurant Form */
+.add-restaurant-form {
+    margin-top: 1.5rem;
+}
+
+.add-restaurant-form h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-text);
+}
+
+.add-restaurant-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-text);
+    border-radius: 4px;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+.add-restaurant-form input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.add-restaurant-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--hover-bg);
+    border: 1px dashed var(--secondary-text);
+    border-radius: 4px;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-restaurant-button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1100;
+}
+
+.notification.success {
+    background: var(--success-color);
+    color: white;
+}
+
+.notification.error {
+    background: var(--error-color);
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar Styling */
+.restaurants-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.restaurants-list::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+}
+
+.restaurants-list::-webkit-scrollbar-thumb {
+    background: var(--secondary-text);
+    border-radius: 3px;
+}
+
+.restaurants-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .restaurant-option {
+        padding: 0.75rem;
+    }
+
+    .restaurant-option img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .stars-container {
+        justify-content: center;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+} 

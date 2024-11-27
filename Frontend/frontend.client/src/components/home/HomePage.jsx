@@ -1,7 +1,8 @@
-﻿import React, { useState, useEffect } from 'react'; // Add useEffect here
+﻿import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 import AuthModal from '../auth/AuthModal';
+import ReviewModal from '../reviews/ReviewModal';
 import LoggedOutHome from './LoggedOutHome';
 import LoggedInHome from './LoggedInHome';
 import UserMenu from '../nav/UserMenu';
@@ -10,6 +11,7 @@ import ThemeToggle from '../nav/ThemeToggle';
 const HomePage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
+    const [showReviewModal, setShowReviewModal] = useState(false);
     const [authModalView, setAuthModalView] = useState('signin');
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
@@ -32,7 +34,7 @@ const HomePage = () => {
         localStorage.removeItem('user');
         setUser(null);
         setIsLoggedIn(false);
-        navigate('/');  // Redirect to home page
+        navigate('/');
     };
 
     return (
@@ -84,7 +86,12 @@ const HomePage = () => {
                                 </button>
                             </>
                         ) : (
-                            <button className="add-review">+ ADD REVIEW</button>
+                            <button 
+                                className="add-review"
+                                onClick={() => setShowReviewModal(true)}
+                            >
+                                + ADD REVIEW
+                            </button>
                         )}
                     </div>
                 </div>
@@ -105,7 +112,11 @@ const HomePage = () => {
                 onAuthSuccess={handleAuthSuccess}
             />
 
-            {/* Optional: Add footer */}
+            <ReviewModal
+                isOpen={showReviewModal}
+                onClose={() => setShowReviewModal(false)}
+            />
+
             <footer className="main-footer">
                 <div className="footer-content">
                     <div className="footer-links">

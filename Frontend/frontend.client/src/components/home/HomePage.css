@@ -1,7 +1,7 @@
 .letterboxd-style {
-    background-color: #14181c;
+    background-color: var(--primary-bg);
     min-height: 100vh;
-    color: #fff;
+    color: var(--primary-text);
 }
 
 .main-nav {
@@ -26,7 +26,7 @@
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 48px 2rem 0; /* Add top padding to account for fixed nav */
+    padding: 48px 2rem 0; 
 }
 
 .logo-title {
@@ -96,11 +96,10 @@
 
 @media (max-width: 768px) {
     .nav-left ul {
-        display: none; /* Consider adding a mobile menu */
+        display: none; 
     }
 }
 
-/* Add to your existing CSS */
 
 .logged-in-container {
     display: grid;
@@ -123,20 +122,20 @@
     .feed-filters button {
         background: none;
         border: none;
-        color: #99a;
+        color: var(--secondary-text);
         font-size: 0.9rem;
         cursor: pointer;
         padding: 0.5rem 1rem;
     }
 
         .feed-filters button.active {
-            color: #fff;
-            background: #2c3440;
+            color: var(--primary-text);
+            background: var(--card-bg);
             border-radius: 4px;
         }
 
 .review-card {
-    background: #2c3440;
+    background: var(--card-bg);
     border-radius: 4px;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -149,22 +148,41 @@
     margin-bottom: 1rem;
 }
 
-    .review-header img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
+.review-header img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.review-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.review-date {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.username {
+    font-weight: 500;
+    color: var(--primary-text);
+}
 
 .review-content {
     display: flex;
     gap: 1rem;
 }
 
-.restaurant-poster {
+.review-content .restaurant-poster {
+    flex-shrink: 0; /* Prevent image from shrinking */
     width: 120px;
     height: 180px;
-    background: #1a1d21;
+    object-fit: cover;
     border-radius: 4px;
+    background: var(--secondary-bg);
 }
 
 .profile-pic {
@@ -175,21 +193,25 @@
 }
 
 .add-review {
-    background: #00b020;
-    color: white;
+    background: var(--accent-color);
+    color: var(--primary-text);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
 }
 
+.add-review:hover {
+    background: var(--hover-accent);
+}
+
 .sidebar {
-    background: #2c3440;
+    background: var(--card-bg);
     border-radius: 4px;
     padding: 1rem;
 }
 
-/* Add these to your existing styles */
+
 
 .user-menu {
     position: relative;
@@ -198,7 +220,7 @@
 .main-footer {
     margin-top: auto;
     padding: 2rem 0;
-    background-color: #2c3440;
+    background-color: var(--card-bg);
 }
 
 .footer-content {
@@ -221,14 +243,14 @@
 
     .nav-items li {
         cursor: pointer;
-        color: #99a;
+        color: var(--secondary-text);
         transition: color 0.2s;
         display: flex;
         align-items: center;
     }
 
         .nav-items li:hover {
-            color: #fff;
+            color: var(--primary-text);
         }
 
 
@@ -238,17 +260,17 @@
 }
 
     .footer-links a {
-        color: #99a;
+        color: var(--secondary-text);
         text-decoration: none;
         font-size: 0.9rem;
     }
 
         .footer-links a:hover {
-            color: #fff;
+            color: var(--primary-text);
         }
 
 .footer-copyright {
-    color: #99a;
+    color: var(--secondary-text);
     font-size: 0.9rem;
 }
 
@@ -292,4 +314,26 @@
         flex-direction: column;
         gap: 1rem;
     }
+}
+
+.review-details {
+    flex: 1;
+}
+
+.review-details h4.restaurant-name {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.review-details .rating {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.review-details .review-text {
+    text-align: left;
+    color: var(--secondary-text);
+    line-height: 1.5;
 }
